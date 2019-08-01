@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-motion-activity"
+        version="0.1">
+    <name>MotionActivity</name>
+    <description>Cordova Motion Activity</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,lotame</keywords>
+    
+    <js-module src="www/MotionActivity.js" name="MotionActivity">
+        <clobbers target="window.plugins.motion.MotionActivity" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="config.xml" parent="/*">
+            <feature name="MotionActivity">
+                <param name="android-package" value="com.kuack.plugins.motion.MotionActivity" />
+            </feature>
+        </config-file>
+
+        <config-file parent="/manifest" target="AndroidManifest.xml">
+            <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <!-- <receiver
+                android:name="com.kuack.plugins.motion.MotionReceiver"
+                android:permission="com.google.android.gms.permission.ACTIVITY_RECOGNITION"
+                android:exported="false" /> -->
+            <service android:exported="false" android:name="com.kuack.plugins.motion.MotionService" />
+        </config-file>
+
+        <source-file src="android/MotionActivity.java" target-dir="src/com/kuack/plugins/motion" />
+        <!-- <source-file src="android/MotionReceiver.java" target-dir="src/com/kuack/plugins/motion" /> -->
+        <source-file src="android/MotionService.java" target-dir="src/com/kuack/plugins/motion" />
+
+        <framework src="com.google.android.play:core:1.6.0" value="gradle" />
+        <framework src="com.google.android.gms:play-services-location:16.0.0" value="gradle" />
+    </platform>
+    
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="MotionActivity">
+                <param name="ios-package" value="MotionActivity" />
+            </feature>
+        </config-file>
+        
+        <header-file src="ios/MotionActivity.h" />
+        <source-file src="ios/MotionActivity.m" />
+    </platform>
+
+    <hook type="after_prepare" src="hooks/afterPrepare.js" />
+</plugin>
