@@ -49,6 +49,7 @@ public class MotionActivity extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+        Context context = cordova.getActivity().getApplicationContext();
         if ("init".equals(action)) {
 
         } else if ("startUpdates".equals(action)) {
@@ -108,7 +109,7 @@ public class MotionActivity extends CordovaPlugin {
         Context context = cordova.getActivity().getApplicationContext();
         Intent intent = new Intent(context, MotionService.class);
         PendingIntent pendingIntent = PendingIntent.getService(context, 629, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        return pendingIntent
+        return pendingIntent;
     }
     
     static void onMotionActivity(DetectedActivity activity) {
