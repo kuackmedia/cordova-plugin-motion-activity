@@ -44,7 +44,6 @@ public class MotionActivity extends CordovaPlugin {
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         MotionActivity.webView = new WeakReference<CordovaWebView>(webView);
         super.initialize(cordova, webView);
-        Log.d("MotionActivity", "initialize");
     }
 
     @Override
@@ -101,9 +100,6 @@ public class MotionActivity extends CordovaPlugin {
 
         return false;
     }
-
-    // private PendingIntent createServicePendingIntent() {
-    // }
 
     private PendingIntent getServicePendingIntent() {
         Context context = cordova.getActivity().getApplicationContext();

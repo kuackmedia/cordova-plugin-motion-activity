@@ -32,17 +32,6 @@ public class MotionService extends IntentService {
                 ActivityRecognitionResult activityResult = ActivityRecognitionResult.extractResult(intent);
                 DetectedActivity activity = activityResult.getMostProbableActivity();
                 onMotionActivity(activity);
-                // int activityType = detectedActivity.getType();
-                // switch (activityType) {
-                //     case DetectedActivity.STILL:
-                //     case DetectedActivity.WALKING:
-                //     case DetectedActivity.RUNNING:
-                //     case DetectedActivity.IN_VEHICLE:
-                //             onMotionActivity(activityType);
-                //         break;
-                //     default:
-                //         break;
-                // }
             }
         }
     }

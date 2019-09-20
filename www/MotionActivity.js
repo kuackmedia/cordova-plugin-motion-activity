@@ -1,5 +1,9 @@
 function MotionActivity() {
     this.subscribers = [];
+    this.MOTION_VEHICLE = 0;
+    this.MOTION_STILL = 3;
+    this.MOTION_WALKING = 7;
+    this.MOTION_RUNNING = 8;
 };
 
 MotionActivity.prototype.startUpdates = function(success, error) {
@@ -7,23 +11,23 @@ MotionActivity.prototype.startUpdates = function(success, error) {
 };
 
 MotionActivity.prototype.publish = function(activityType, transitionType) {
-    var activityName;
+    var activity;
     switch (activityType) {
-        case 0:
-            activityName = "IN_VEHICLE";
+        case this.MOTION_VEHICLE:
+            activity = this.MOTION_VEHICLE;
             break;
-        case 3:
-            activityName = "STILL";
+        case this.MOTION_STILL:
+            activity = this.MOTION_STILL;
             break;
-        case 7:
-            activityName = "WALKING";
+        case this.MOTION_WALKING:
+            activity = this.MOTION_WALKING;
             break;
-        case 8:
-            activityName = "RUNNING";
+        case this.MOTION_RUNNING:
+            activity = this.MOTION_RUNNING;
             break;
     }
     this.subscribers.forEach(function(callback){
-        callback.call(null, activityName);
+        callback.call(null, activity);
     });
 };
 
