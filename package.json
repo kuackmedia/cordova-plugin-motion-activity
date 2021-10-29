@@ -1,16 +1,16 @@
 {
-  "name": "cordova-plugin-lotame",
+  "name": "cordova-plugin-motion-activity",
   "version": "1.0.0",
   "description": "Cordova Plugin Lotame",
   "cordova": {
-    "id": "cordova-plugin-lotame",
+    "id": "cordova-plugin-motion-activity",
     "platforms": [
       "android"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kuackmedia/cordova-plugin-lotame"
+    "url": "https://github.com/kuackmedia/cordova-plugin-motion-activity"
   },
   "engines": {
     "cordovaDependencies": {
