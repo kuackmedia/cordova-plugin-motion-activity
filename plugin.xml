@@ -34,7 +34,7 @@
         <!-- <source-file src="android/MotionReceiver.java" target-dir="src/com/kuack/plugins/motion" /> -->
         <source-file src="android/MotionService.java" target-dir="src/com/kuack/plugins/motion" />
 
-        <framework src="com.google.android.play:core:1.6.0" value="gradle" />
+        <framework src="com.google.android.play:core:1.6.4" value="gradle" />
         <framework src="com.google.android.gms:play-services-location:16.0.0" value="gradle" />
     </platform>
     
